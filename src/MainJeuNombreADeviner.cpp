@@ -18,9 +18,11 @@ int main()
 {
     TJoueur romain;
     InitJoueur(romain, "Romain");
+    cout << "----------------------------------------------" << endl;
     cout << "Vous allez jouer pour deviner un nombre secret" << endl;
     int secret = TirerNombreMystere();
     JouerPartie(romain, secret);
+    MajResultatsJoueur(romain, romain.nbTentatives, romain.nbPartiesGagnees);
     return 0;
 }
 

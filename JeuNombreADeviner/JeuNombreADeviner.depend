@@ -34,3 +34,16 @@
 	<ctime>
 	"../include/JeuNombreAdeviner.h"
 
+1612035785 source:c:\users\romai\desktop\bts-snir\langage c++\jeunombreadeviner_struct\src\jeunombreadeviner.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	"../include/JeuNombreAdeviner.h"
+
+1612014745 c:\users\romai\desktop\bts-snir\langage c++\jeunombreadeviner_struct\include\jeunombreadeviner.h
+	<string>
+
+1612036297 source:c:\users\romai\desktop\bts-snir\langage c++\jeunombreadeviner_struct\src\mainjeunombreadeviner.cpp
+	<iostream>
+	"../include/JeuNombreADeviner.h"
+

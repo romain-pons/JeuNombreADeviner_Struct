@@ -54,27 +54,34 @@ int TirerNombreMystere()
 
 void JouerPartie(TJoueur& un_joueur, int nombreADeviner)
 {
-    int nbrSaisi, compteur = 1;
+    int nbrSaisi, compteur = 1, nbrEssais = 1;
     bool etat = false;
     cout << "Entrez un nombre entre 1 et 10 : ";
     cin >> nbrSaisi;
-    while(compteur != 4 && etat == false){
+    while(nbrEssais != 4){
         if(nbrSaisi < nombreADeviner){
-        cout << "C'est plus !" << endl << endl;
-        cout << "Entrez un nouveau nombre : ";
-        cin >> nbrSaisi;
+            cout << "C'est plus !" << endl << endl;
+            cout << "Entrez un nouveau nombre : ";
+            cin >> nbrSaisi;
+            compteur ++;
+            nbrEssais ++;
         }
         else if(nbrSaisi > nombreADeviner){
-        cout << "C'est moins !" << endl << endl;
-        cout << "Entrez un nouveau nombre : ";
-        cin >> nbrSaisi;
+            cout << "C'est moins !" << endl << endl;
+            cout << "Entrez un nouveau nombre : ";
+            cin >> nbrSaisi;
+            compteur ++;
+            nbrEssais ++;
         }
         else{
             etat = true;
+            nbrEssais = 4;
         }
-        compteur ++;
-    }
-    if(etat){
+        }
+        if(nbrSaisi == nombreADeviner){
+            etat = true;
+        }
+    if(etat == true){
         cout << "Vous avez trouve le bon nombre : " << nombreADeviner << " en " << compteur << " essais..." << endl << endl;
     }else{
         cout << "C'est perdu le nombre a trouver etait : " << nombreADeviner << endl << endl;
@@ -107,7 +114,10 @@ void MajResultatsJoueur(TJoueur &joueur, int nbEssais, bool gagne)
 
 void ResultatsJoueur(TJoueur joueur, int& nbsucces, int& nbechec, int& nbessais)
 {
-    // A COMPLETER
+    nbessais = joueur.nbTentatives;
+    nbechec = joueur.nbPartiesJouees - joueur.nbPartiesGagnees;
+    nbsucces = joueur.nbPartiesGagnees;
+
 }
 
 // Nom :Nom
@@ -116,7 +126,6 @@ void ResultatsJoueur(TJoueur joueur, int& nbsucces, int& nbechec, int& nbessais)
 // Valeur de retour : nom du joueur
 
 string Nom(TJoueur joueur){
-
     return joueur.nom;
 }
 
