@@ -22,7 +22,6 @@ int main()
     cout << "Vous allez jouer pour deviner un nombre secret" << endl;
     int secret = TirerNombreMystere();
     JouerPartie(romain, secret);
-    MajResultatsJoueur(romain, romain.nbTentatives, romain.nbPartiesGagnees);
     return 0;
 }
 

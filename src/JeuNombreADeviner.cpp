@@ -58,33 +58,32 @@ void JouerPartie(TJoueur& un_joueur, int nombreADeviner)
     bool etat = false;
     cout << "Entrez un nombre entre 1 et 10 : ";
     cin >> nbrSaisi;
-    while(nbrEssais != 4){
+    while(compteur != 4){
         if(nbrSaisi < nombreADeviner){
+            compteur ++;
             cout << "C'est plus !" << endl << endl;
             cout << "Entrez un nouveau nombre : ";
             cin >> nbrSaisi;
-            compteur ++;
             nbrEssais ++;
         }
         else if(nbrSaisi > nombreADeviner){
+            compteur ++;
             cout << "C'est moins !" << endl << endl;
             cout << "Entrez un nouveau nombre : ";
             cin >> nbrSaisi;
-            compteur ++;
             nbrEssais ++;
         }
         else{
             etat = true;
-            nbrEssais = 4;
+            compteur = 4;
         }
-        }
-        if(nbrSaisi == nombreADeviner){
-            etat = true;
-        }
-    if(etat == true){
-        cout << "Vous avez trouve le bon nombre : " << nombreADeviner << " en " << compteur << " essais..." << endl << endl;
+    }
+    if(nbrSaisi == nombreADeviner){
+        cout << "Vous avez trouve le bon nombre : " << nombreADeviner << " en " << nbrEssais << " essais..." << endl << endl;
+        MajResultatsJoueur(un_joueur, nbrEssais, etat);
     }else{
         cout << "C'est perdu le nombre a trouver etait : " << nombreADeviner << endl << endl;
+        MajResultatsJoueur(un_joueur, nbrEssais, etat);
     }
 }
 
