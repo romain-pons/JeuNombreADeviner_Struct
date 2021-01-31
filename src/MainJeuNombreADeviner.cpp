@@ -16,12 +16,21 @@ using namespace std;
 
 int main()
 {
+    int i = 0;
     TJoueur romain;
     InitJoueur(romain, "Romain");
-    cout << "----------------------------------------------" << endl;
-    cout << "Vous allez jouer pour deviner un nombre secret" << endl;
-    int secret = TirerNombreMystere();
-    JouerPartie(romain, secret);
+    while(i < 3){
+        cout << "----------------------------------------------" << endl;
+        cout << "Vous allez jouer pour deviner un nombre secret" << endl;
+        int secret = TirerNombreMystere();
+        JouerPartie(romain, secret);
+        cout << Nom(romain) << endl;
+        cout << romain.nbTentatives << endl;
+        cout << romain.nbPartiesJouees << endl;
+        cout << romain.nbPartiesGagnees << endl;
+        i ++;
+    }
+
     return 0;
 }
 
