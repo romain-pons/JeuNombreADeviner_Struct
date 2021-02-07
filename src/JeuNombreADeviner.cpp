@@ -74,11 +74,11 @@ void JouerPartie(TJoueur& un_joueur, int nombreADeviner)
             nbrEssais ++;
         }
         else{
-            etat = true;
             compteur = 4;
         }
     }
     if(nbrSaisi == nombreADeviner){
+        etat = true;
         cout << "Vous avez trouve le bon nombre : " << nombreADeviner << " en " << nbrEssais << " essais..." << endl << endl;
         MajResultatsJoueur(un_joueur, nbrEssais, etat);
     }else{
@@ -128,3 +128,86 @@ string Nom(TJoueur joueur){
     return joueur.nom;
 }
 
+
+// Nom : nbrJoueur
+// Rôle : lance la partie avec le nbr de joueurs indique
+// Paramètres d'entrée : Le nombre de joueurs
+// Paramètres de sortie : Aucun
+// Paramètres d'entrée/sortie : Le joueur créer
+
+void nbrJoueurPartie (int nbrJoueur){
+    int i = 0;
+    int nbrPartie = 0;
+    TJoueur romain[nbrJoueur];
+    while(i < nbrJoueur){
+        cout << "Joueur " << i + 1 << " quel est votre nom ?" << endl;
+        cin >> romain[i].nom;
+        InitJoueur(romain[i], Nom(romain[i]));
+        i ++;
+    }
+    cout << "Combien de parties voulez-vous faire ?" << endl;
+    cin >> nbrPartie;
+    system("cls");
+    i = 0;
+    while(i < nbrJoueur){
+        Partie(romain[i], nbrPartie);
+        i ++;
+    }
+    i = 0;
+    int j = 0;
+    TJoueur tmp;
+    while(i < nbrJoueur)
+    {
+        j = i;
+        while(j < nbrJoueur)
+        {
+            if(romain[j].nbPartiesGagnees > romain[i].nbPartiesGagnees){
+                tmp = romain[i];
+                romain[i] = romain[j];
+                romain[j] = tmp;
+            }
+            if (romain[j].nbPartiesGagnees == romain[i].nbPartiesGagnees){
+                if (romain[j].nbTentatives < romain[i].nbTentatives){
+                    tmp = romain[i];
+                    romain[i] = romain[j];
+                    romain[j] = tmp;
+                }
+            }
+            j ++;
+        }
+        i ++;
+    }
+    j = 0;
+    cout << "Classement : " << endl;
+    cout << "-----------------------------------------" << endl;
+    while(j < nbrJoueur)
+    {
+        cout << "Place numero " << j + 1 << " : " << Nom(romain[j]) << " avec " << romain[j].nbPartiesGagnees << " parties gagnees "  << " et "
+        << romain[j].nbTentatives << " essais "<< endl;
+        j ++;
+    }
+}
+
+
+// Nom : Partie
+// Rôle : joue le nombre de partie indique
+// Paramètres d'entrée : Le nombre de parties, le joueur
+// Paramètres de sortie : Aucun
+// Paramètres d'entrée/sortie : Le joueur créer
+
+void Partie(TJoueur& un_joueur, int nbrPartie){
+    int i = 0;
+    while(i < nbrPartie){
+        cout << "-------------------------------------------------------" << endl;
+        cout << Nom(un_joueur) << ", vous allez jouer pour deviner un nombre secret" << endl;
+        int secret = TirerNombreMystere();
+        JouerPartie(un_joueur, secret);
+        system("cls");
+        cout << Nom(un_joueur) << endl;
+        cout << "----------------------------------------------" << endl;
+        cout << "Nombres de tentavives : " << un_joueur.nbTentatives << endl;
+        cout << "Nombres de parties jouees : " << un_joueur.nbPartiesJouees << endl;
+        cout << "Nombres de parties gagnees : " << un_joueur.nbPartiesGagnees << endl;
+        i ++;
+    }
+}

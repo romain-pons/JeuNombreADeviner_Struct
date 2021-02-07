@@ -81,3 +81,19 @@ void ResultatsJoueur(TJoueur joueur, int &nbsucces, int &nbechec, int & nbessais
 string Nom(TJoueur joueur);
 
 
+// Nom : Partie
+// Rôle : joue le nombre de partie indique
+// Paramètres d'entrée : Le nombre de parties
+// Paramètres de sortie : Aucun
+// Paramètres d'entrée/sortie : Le joueur créer
+
+void Partie (TJoueur &joueur, int nbrPartie);
+
+// Nom : nbrJoueur
+// Rôle : lance la partie avec le nbr de joueurs indique
+// Paramètres d'entrée : Le nombre de joueurs
+// Paramètres de sortie : Aucun
+// Paramètres d'entrée/sortie : Le joueur créer
+
+void nbrJoueurPartie (int nbrJoueur);
+
