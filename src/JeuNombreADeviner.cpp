@@ -8,7 +8,7 @@
 // Nom des composants utilises: JeuNombreADeviner.h
 //                              iostream
 //                              ctime
-// Historique du fichier:
+// Historique du fichier: ecriture des fonctions et des commentaires- Romain PONS
 /*************************************************/
 #include <iostream>
 #include <cstdlib>

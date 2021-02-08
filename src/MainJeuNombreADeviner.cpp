@@ -7,7 +7,7 @@
 // Rôle du fichier: Contient le code jeu
 // Nom des composants utilises: JeuNombreADeviner.h
 //                              iostream
-// Historique du fichier:
+// Historique du fichier: création du main - Romain PONS
 /*************************************************/
 #include <iostream>
 using namespace std;

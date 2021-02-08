@@ -7,7 +7,7 @@
 // Rôle du fichier: Contient la déclaration du type pour représenter un joueur
 // et les fonctions concernant le jeu
 // Nom des composants utilises: string
-// Historique du fichier:
+// Historique du fichier: creation de la fonction Partie, nbrJoueurPartie et ecriture des commentaires - Romain PONS
 /*************************************************/
 #include <string>
 using namespace std;
@@ -22,9 +22,6 @@ int nbPartiesJouees;
 int nbPartiesGagnees;
 int nbTentatives;
 } TJoueur;
-
-
-
 
 
 // Nom :InitJoueur
